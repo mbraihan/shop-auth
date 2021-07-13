@@ -1,0 +1,197 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Presentation {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+  <div class="container-fluid m-2 mx-auto p-2">
+    <div class="row">
+      <div class="mx-auto">
+        <div class="nav nav-pills nav-pill-circle flex-column flex-md-row">
+          <ul class="list-group list-group-horizontal" style="flex-direction: initial; list-style-type: none;">
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station1</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station2</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station3</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station4</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station5</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="float-right mx-3">
+        <a class="btn btn-gray" href="\stationsetup\1">Add station</a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid m-2 mx-auto p-2">
+    <div class="row m-4 p-4 mx-auto">
+      <div class="col-md-12 m-4 p-4 mx-auto border border-light">
+        Station Setup
+        <div class="row col-md-12 m-4 p-4 mx-auto border border-light">
+          {% if tab|int()==1 %}
+          <form action="/stationsetup/2" method="post" style="width: 100%;">
+            <p>Camera Details</p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="u_name" placeholder="user name">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="password" placeholder="password">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="ip_addr" placeholder="ip address">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="port" placeholder="port number">
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control" name="channel" placeholder="channel number">
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control" name="stream_type" placeholder="stream type">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="mac_addr" placeholder="camera MAC">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="serial" placeholder="serial_no">
+                </div>
+              </div>
+              <div class="flex col-md-6">
+                <div class="m-3 p-3">
+                  <a class="btn btn-primary float-left">Cancel</a>
+                  <input class="btn btn-primary float-right" class="btn btn-block rounded btn-secondary mt-5" value="Save & Continue" type="submit" >
+                </div>
+              </div>
+            </div>
+          </form>
+          {% elif tab|int()==2 %}
+          <form action="\stationsetup\2" method="post" style="width: 100%;">
+            <p>Capture images</p>
+            <div class="row">
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <div class="m-3 p-3">
+                  <a class="btn btn-primary float-left" href="\stationsetup\1">Previous</a>
+                  <a class="btn btn-primary float-right" href="\stationsetup\3" class="btn btn-block rounded btn-secondary mt-5">Save & Continue</a>
+                </div>
+              </div>
+            </div>
+          </form>
+          {% elif tab|int()==3 %}
+          <form action="\stationsetup\2" method="post" style="width: 100%;">
+            <p>Capture images</p>
+            <div class="row">
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <div class="m-3 p-3">
+                  <a class="btn btn-primary float-left" href="\stationsetup\2">Previous</a>
+                  <a class="btn btn-primary float-right" href="onSubmit()" class="btn btn-block rounded btn-secondary mt-5">Finish & Submit</a>
+                </div>
+              </div>
+            </div>
+          </form>
+          {% endif %}
+        </div>
+        <div class="row">
+          <hr style="background-color: gray;height: 3px; width: 65%; margin-left: 17%; margin-right: 18%; position: absolute;">
+          <style type="text/css">
+            .btn-circle {
+              width: 30px;
+              height: 30px;
+              padding: 6px 0px;
+              border-radius: 15px;
+              font-size: 8px;
+              text-align: center;
+              background-color: yellow;
+            }
+            .btn-circle:active {
+              background-color: green;
+            }
+            .btn-circle:hover {
+              background-color: gray;
+            }
+          </style>
+          <div class="col-md-4 pt-2">
+            <div class="step text-center">
+              <button type="button" class="btn btn-warning btn-circle btn-sm"></button>
+            </div>
+          </div>
+          <div class="col-md-4 pt-2">
+            <div class="step text-center">
+              <button type="button" class="btn btn-warning btn-circle btn-sm"></button>
+            </div>
+          </div>
+          <div class="col-md-4 pt-2">
+            <div class="step text-center">
+              <button type="button" class="btn btn-warning btn-circle btn-sm"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

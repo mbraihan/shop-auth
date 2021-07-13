@@ -1,0 +1,85 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Presentation {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+  <div class="container-fluid m-2 mx-auto p-2">
+    <div class="row">
+      <div class="mx-auto">
+        <div class="nav nav-pills nav-pill-circle flex-column flex-md-row">
+          <ul class="list-group list-group-horizontal" style="flex-direction: initial; list-style-type: none;">
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station1</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station2</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station3</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station4</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station5</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="float-right mx-3">
+        <a class="btn btn-gray" href="\stationsetup\1">Add station</a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid m-2 mx-auto p-2">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row m-2 p-2 border border-light" style="display: flex; justify-content: space-between;">
+          <h5 style="float: left;">Latest Transaction</h5>
+          <a style="float: right;" href="#">Show All</a>
+        </div>
+        <div class="row m-2 p-2 list-group border border-gray">
+          <ul style="width: 100%;">
+            <a href="#" style="overflow: hidden;" class="list-group-item list-group-item-action border border-light">
+              {% for video in transactions[0].Video %}
+              <span>{{ video }}</span>
+              {% endfor %}
+              {% for time in transactions[1].StartTime %}
+              <span>{{ time }}</span>
+              {% endfor %}
+            </a>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row m-2 p-2 w-full">
+          <div id="styled_video_container" style="width: 100%;">
+            <video src="/video/wind.mp4" type="video/mp4" style="width: 100%;" controls poster="/video/wind-8a1cd93f.png" id="styled_video" muted preload="metadata" loop>
+          </div>
+        </div>
+        <div class="row m-2 p-2">
+          <div style="width: 100%; height: 500px; background-color: beige;"></div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="row m-2 p-2 border border-light" style="display: flex; justify-content: space-between;">
+          <h5 style="float: left;">Latest Alters</h5>
+          <a style="float: right;" href="#">Show All</a>
+        </div>
+        <div class="row m-2 p-2 list-group border border-gray">
+          {% for alert in alerts[0].Image %}
+          <img class="img-fluid" src="{{ alert }}">
+          {% endfor %}
+        </div>
+        <div class="row m-2 p-2 border border-light" style="display: flex; justify-content: space-between;">
+          <h5 style="float: left;">Latest Aachives</h5>
+          <a style="float: right;" href="#">Show All</a>
+        </div>
+        <div class="row m-2 p-2 list-group border border-gray">
+          <a href="#" class="list-group-item list-group-item-action border border-light">Date1</a>
+          <a href="#" class="list-group-item list-group-item-action border border-light">Date2</a>
+          <a href="#" class="list-group-item list-group-item-action border border-light">Date3</a>
+          <a href="#" class="list-group-item list-group-item-action border border-light">Date4</a>
+          <a href="#" class="list-group-item list-group-item-action border border-light">Date5</a>
+          <a href="#" class="list-group-item list-group-item-action border border-light">Date6</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

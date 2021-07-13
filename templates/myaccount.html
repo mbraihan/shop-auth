@@ -1,0 +1,265 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Presentation {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+  <div class="container-fluid m-4 mx-auto p-4">
+  <div class="row">
+    <div class="col-sm-3">
+      <pre>{{ state }}</pre>
+    <!-- Nav Wrapper -->
+    <div class="nav-wrapper position-relative">
+      <ul class="nav nav-pills square nav-fill flex-column vertical-tab">
+      <li class="nav-item">
+        {% if tab|int()==1 %}
+        <a class="nav-link active" data-toggle="tab" href="/myaccount/1"><span class="d-block">Profile</span></a>
+        {% else %}
+        <a class="nav-link" data-toggle="tab" href="/myaccount/1"><span class="d-block">Profile</span></a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if tab|int()==2 %}
+        <a class="nav-link active" data-toggle="tab" href="/myaccount/2"><span class="d-block">Change Password</span></a>
+        {% else %}
+        <a class="nav-link" data-toggle="tab" href="/myaccount/2"><span class="d-block">Change Password</span></a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if tab|int()==3 %}
+        <a class="nav-link active" data-toggle="tab" href="/myaccount/3"><span class="d-block">Billing</span></a>
+        {% else %}
+        <a class="nav-link" data-toggle="tab" href="/myaccount/3"><span class="d-block">Billing</span></a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if tab|int()==4 %}
+        <a class="nav-link active" data-toggle="tab" href="/myaccount/4"><span class="d-block">Licensing</span></a>
+        {% else %}
+        <a class="nav-link" data-toggle="tab" href="/myaccount/4"><span class="d-block">Licensing</span></a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if tab|int()==5 %}
+        <a class="nav-link active" data-toggle="tab" href="/myaccount/5"><span class="d-block">Role</span></a>
+        {% else %}
+        <a class="nav-link" data-toggle="tab" href="/myaccount/5"><span class="d-block">Role</span></a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if tab|int()==6 %}
+        <a class="nav-link active" data-toggle="tab" href="/myaccount/6"><span class="d-block">Invite User</span></a>
+        {% else %}
+        <a class="nav-link" data-toggle="tab" href="/myaccount/6"><span class="d-block">Invite User</span></a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if tab|int()==7 %}
+        <a class="nav-link active" data-toggle="tab" href="/myaccount/7"><span class="d-block">Invite User</span></a>
+        {% else %}
+        <a class="nav-link" data-toggle="tab" href="/myaccount/7"><span class="d-block">Invite User</span></a>
+        {% endif %}
+      </li>
+      </ul>
+    </div>
+    <!-- End of Nav Wrapper -->
+    </div>
+    <div class="col-sm-9 mt-3">
+    <div class="card border border-light">
+      <div class="card-body p-0">
+      <div class="row mx-auto m-2 p-2">
+        {% if tab|int()==1 %}
+        <div class="col-md-12 mx-auto m-2 p-2">
+          <div class="container-fluid mx-4 mx-auto p-4">
+          <div class="float-left"><p>Profile</p></div>
+          </div>
+          <div class="container-fluid mx-auto p-4">
+          <div class="mx-auto col-md-6 p-5 border border-light">
+            <form>
+            <div class="justify-content-center text-center">
+              <img class="rounded-circle img-thumbnail image-lg border-secondary p-2 mx-auto" src="{{userinfo['picture']}}"/>
+              <div class="form-group">
+              <h1>{{ userinfo['name'] }}</h1>
+              </div>
+            </div>
+            </form>
+          </div>
+          </div>
+        </div>
+        {% elif tab|int()==2 %}
+        <div class="col-12 d-flex align-items-center justify-content-center">
+          <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+            <h1 class="h3 mb-4">Reset password</h1>
+            <form action="#">
+              <!-- Form -->
+              <div class="mb-4">
+                <label for="email">Your Email</label>
+                <div class="input-group">
+                  <input type="email" class="form-control" placeholder="example@company.com" id="email" required="" disabled="">
+                </div>  
+              </div>
+              <!-- End of Form -->
+              <!-- Form -->
+              <div class="mb-4">
+                <label for="password">Your Password</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
+                  <input type="password" placeholder="Password" class="form-control" id="password" required="" autofocus="">
+                </div>  
+              </div>
+              <!-- End of Form -->
+              <!-- Form -->
+              <div class="mb-4">
+                <label for="confirm_password">Confirm Password</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon5"><span class="fas fa-unlock-alt"></span></span>
+                  <input type="password" placeholder="Confirm Password" class="form-control" id="confirm_password" required="">
+                </div>  
+              </div>
+              <!-- End of Form -->
+              <button type="submit" class="btn btn-block btn-primary">Reset password</button>
+            </form>
+          </div>
+      </div>
+      {% elif tab|int()==3 %}
+      <!-- Billing panel -->
+      <div class="col-md-12 mx-auto m-2 p-2">
+        <div class="container-fluid mx-4 mx-auto p-4">
+        <div class="float-left"><p>Billing</p></div>
+        <div class="float-right"><button class="btn btn-primary">Connect Strip</button></div>
+        </div>
+        <div class="container-fluid mx-auto p-4">
+        <div class="mx-auto col-md-6">
+          <form>
+          <div class="form-group">
+            <select class="form-control">
+            <option>Card type</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="" placeholder="16 digit card number">
+          </div>
+          <div class="form-group" style="display: flex; justify-content: space-between;">
+            <input class="form-control" style="width: 45%;" type="date" name="">
+            <input class="form-control" style="width: 45%; float: right;" type="text" name="CVV" placeholder="CVV">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="" placeholder="name on card">
+            </div>
+            <div class="form-group">
+              <div class="m-3 p-3">
+              <input style="width: 30%;" class="btn btn-primary" type="button" value="Edit">
+              <input style="width: 30%; float: right;" class="btn btn-tertiary" type="submit" name="">
+              </div>
+            </div>
+            </form>
+          </div>
+          </div>
+        </div>
+        {% elif tab|int()==4 %}
+        <!-- Licensing panel -->
+        <div class="col-md-12 mx-auto m-2 p-2">
+          <div class="container-fluid mx-4 mx-auto p-4">
+          <div class="float-left"><p>License</p></div>
+          </div>
+          <div class="container-fluid mx-auto p-4">
+          <div class="mx-auto col-md-6 p-5 border border-light">
+            <form>
+            <div class="form-group">
+              <input class="form-control" type="text" name="" placeholder="Camera MAC"><i>+</i>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="" placeholder="Camera MAC">
+            </div>
+            <div class="form-group">
+              <div class="m-3 p-3">
+              <div class="row mx-auto">
+                <input style="width: 30%" class="btn btn-tertiary" type="submit" name="">
+              </div>
+              </div>
+            </div>
+            </form>
+          </div>
+          </div>
+          <div class="container-fluid mx-auto p-3">
+          <div class="mx-auto col-md-6 pt-2 border border-light">
+            <p>Available Licenses</p>
+            <form>
+            <div class="form-group">
+              <input class="form-control" type="text" name="" placeholder="Camera MAC: AA-AA-AA-AA-AA  Expiry Date:">
+            </div><div class="form-group">
+              <input class="form-control" type="text" name="" placeholder="Camera MAC: AA-AA-AA-AA-AA  Expiry Date:">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="" placeholder="Camera MAC: AA-AA-AA-AA-AA  Expiry Date:">
+            </div>
+            </form>
+          </div>
+          </div>
+        </div>
+        {% elif tab|int()==5 %}
+        <div class="col-md-12 mx-auto m-2 p-2">
+          <p>Photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod
+            Pinterest in do umami readymade swag.</p>
+          <p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity.</p>
+        </div>
+        {% elif tab|int()==6 %}
+        <div class="col-md-12 mx-auto m-2 p-2">
+          <p>Photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod
+            Pinterest in do umami readymade swag.</p>
+          <p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity.</p>
+        </div>
+        {% elif tab|int()==7 %}
+          <!-- Billing panel -->
+          <div class="col-md-12 mx-auto m-2 p-2">
+            <div class="container-fluid mx-4 mx-auto p-4">
+            <div class="float-left"><p>OnBoarding</p></div>
+            <div class="float-right"><button class="btn btn-primary">Connect Strip</button></div>
+            </div>
+            <div class="container-fluid mx-auto p-4">
+              <div class="mx-auto col-md-6">
+                <form method="post" action="http://24.186.96.191:8889/client-add">
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="u_name" placeholder="u_name">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="full_name" placeholder="full_name">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="email_address" placeholder="email_address">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="address" placeholder="address">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="city" placeholder="city">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="zipcode" placeholder="zipcode">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="country" placeholder="country">
+                  </div>
+                  <div class="form-group">
+                    <div class="m-3 p-3">
+                      <input style="width: 30%;" class="btn btn-primary" type="button" value="Edit">
+                      <input style="width: 30%; float: right;" class="btn btn-tertiary" type="submit" name="">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

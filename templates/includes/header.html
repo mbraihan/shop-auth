@@ -1,0 +1,50 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbar20">
+    <div class="float-left"><a href="/"><h1>LOGO</h1></a></div>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item mx-1"> <a class="nav-link" href="/">Home</a> </li>
+      <li class="nav-item mx-1"> <a class="nav-link" href="#">About Us</a> </li>
+      <li class="nav-item mx-1"> <a class="nav-link" href="/products/1">Products</a> </li>
+      <li class="nav-item mx-1"> <a class="nav-link" href="#">Help</a> </li>
+      <li class="nav-item mx-1"> <a class="nav-link" href="/myaccount/1">My Account</a> </li>
+    </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar20">
+      <div class="float-left"></div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <div class="input-group mb-4">
+            <div class="input-group-prepend">
+            <span class="input-group-text">
+              <span class="fas fa-search"></span>
+            </span>
+            </div>
+            <input class="form-control" id="exampleInputIcon1" placeholder="Search" type="text" aria-label="Input with icon left">
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="media d-flex align-items-center">
+              <img class="user-avatar md-avatar rounded-circle" style="width: 25px;" alt="Image placeholder" src="{{ userinfo['picture'] }}">
+              <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
+              <span class="mb-0 font-small fw-bold" style="color: #ffffff;">{{ userinfo['name'] }}</span>
+              </div>
+            </div>
+          </a>
+          <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-0">
+            <a class="dropdown-item rounded-top fw-bold" href="/settings.html">
+              <span class="far fa-user-circle"></span>My Profile</a>
+            <a class="dropdown-item fw-bold" href="#"><span class="fas fa-envelope-open-text"></span>Change Password</a>
+            <a class="dropdown-item fw-bold" href="#"><span class="fas fa-user-shield"></span>Transaction</a>
+            <div role="separator" class="dropdown-divider my-0"></div>
+            <a class="dropdown-item rounded-bottom fw-bold" href="/logout">
+              <span class="fas fa-sign-out-alt text-danger"></span>Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+</header>

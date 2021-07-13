@@ -1,0 +1,236 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Presentation {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+  <div class="container-fluid m-2 mx-auto p-2">
+    <div class="row">
+      <div class="mx-auto">
+        <div class="nav nav-pills nav-pill-circle flex-column flex-md-row">
+          <ul class="list-group list-group-horizontal" style="flex-direction: initial; list-style-type: none;">
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station1</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station2</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station3</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station4</span></a></li>
+            <li class="nav-item"><a class="nav-link" aria-label="first navigation tab" data-toggle="tab" href="#"><span class="nav-link-icon d-block">station5</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="float-right mx-3">
+        <a class="btn btn-gray" href="\stationsetup\1">Add station</a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid m-2 mx-auto p-2">
+    <div class="row m-4 p-4 mx-auto">
+      <div class="col-md-12 m-4 p-4 mx-auto border border-dark">
+        <!--Breadcrumb-->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-text-light breadcrumb-info text-white">
+            <li class="breadcrumb-item"><a href="#">DataSet Training</a></li>
+            <li class="breadcrumb-item"><a href="#">Name</a></li>
+            <li class="breadcrumb-item"><a href="#">Source</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Label Definition</li>
+          </ol>
+        </nav>
+        {% if tab|int()==2 %}
+        <div class="row col-md-12 m-4 p-4 mx-auto border border-gray">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <select class="form-control form-select" id="inlineFormCustomSelectPref" aria-label="Default select example">
+              <option selected="selected">Select a Camera</option>
+              {% for i in camera_list.Camera %}
+              <option value="1">{{ camera_list.Camera[i] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-4">
+            <select class="form-control form-select" id="inlineFormCustomSelectPref" aria-label="Default select example">
+              <option selected="selected">Upload source</option>
+              <option value="1">United States</option>
+              <option value="2">Germany</option>
+              <option value="3">Canada</option>
+            </select>
+          </div>
+        </div>
+        {% endif %}
+        <div class="row col-md-12 m-4 p-4 mx-auto border border-gray">
+          {% if tab|int()==1 %}
+          <pre>{{ dataset_list }}</pre>
+          <form action="\products\2" method="post" style="width: 100%;">
+            <p>New Dataset</p>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="user name">
+                </div>
+              </div>
+              <div class="col-md-2">OR</div>
+              <div class="col-md-5">
+                <div class="form-group">
+                  <select class="form-control form-select" id="inlineFormCustomSelectPref" aria-label="Default select example">
+                    <option selected="selected">Pre-defined Datasets</option>
+                    <option value="1">United States</option>
+                    <option value="2">Germany</option>
+                    <option value="3">Canada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <div class="m-3 p-3">
+                  <a class="btn btn-primary float-left">Cancel</a>
+                  <a class="btn btn-primary float-right" href="\products\2" class="btn btn-block rounded btn-secondary mt-5">Save & Continue</a>
+                </div>
+              </div>
+            </div>
+          </form>
+          {% elif tab|int()==2 %}
+          <form action="\products\2" method="post" style="width: 100%;">
+            <p>Capture images</p>
+            <div class="row">
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <div class="m-3 p-3">
+                  <a class="btn btn-primary float-left" href="\products\1">Previous</a>
+                  <a class="btn btn-primary float-right" href="\products\3" class="btn btn-block rounded btn-secondary mt-5">Save & Continue</a>
+                </div>
+              </div>
+            </div>
+          </form>
+          {% elif tab|int()==3 %}
+          <form action="\products\2" method="post" style="width: 100%;">
+            <p>Capture images</p>
+            <div class="row">
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+              <div class="col-md-3">
+                <img class="img-fluid" src="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <div class="m-3 p-3">
+                  <a class="btn btn-primary float-left" href="\products\2">Previous</a>
+                  <a class="btn btn-primary float-right" href="onSubmit()" class="btn btn-block rounded btn-secondary mt-5">Finish & Submit</a>
+                </div>
+              </div>
+            </div>
+          </form>
+          {% endif %}
+        </div>
+        <div class="row">
+          <hr style="background-color: gray;height: 3px; width: 65%; margin-left: 17%; margin-right: 18%; position: absolute;">
+          <style type="text/css">
+            .btn-circle {
+              width: 30px;
+              height: 30px;
+              padding: 6px 0px;
+              border-radius: 15px;
+              font-size: 8px;
+              text-align: center;
+              background-color: yellow;
+            }
+            .btn-circle:active {
+              background-color: green;
+            }
+            .btn-circle:hover {
+              background-color: gray;
+            }
+          </style>
+          <div class="col-md-4 pt-2">
+            <div class="step text-center">
+              <a class="btn btn-success btn-circle btn-sm"></a>
+            </div>
+          </div>
+          {% if tab|int()>=2 %}
+          <div class="col-md-4 pt-2">
+            <div class="step text-center">
+              <a class="btn btn-success btn-circle btn-sm"></a>
+            </div>
+          </div>
+          {% else %}
+          <div class="col-md-4 pt-2">
+            <div class="step text-center">
+              <a class="btn btn-warning btn-circle btn-sm"></a>
+            </div>
+          </div>
+          {% endif %}
+          {% if tab|int()>=3 %}
+          <div class="col-md-4 pt-2">
+            <div class="step text-center">
+              <a class="btn btn-success btn-circle btn-sm"></a>
+            </div>
+          </div>
+          {% else %}
+          <div class="col-md-4 pt-2">
+            <div class="step text-center">
+              <a class="btn btn-warning btn-circle btn-sm"></a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
